@@ -10,7 +10,7 @@ const DataForm = () => {
     const { data: storedData, isLoading, refetch } = useQuery({
         queryKey: ['taskView'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:8000/taskView');
+            const res = await fetch('https://my-app-server-ruddy.vercel.app/taskView');
             const data = await res.json();
             return data.data;
         }
@@ -27,7 +27,7 @@ const DataForm = () => {
         const status = form.status.value;
         const details = { task, status };
 
-        fetch('http://localhost:8000/addTasks', {
+        fetch('https://my-app-server-ruddy.vercel.app/addTasks', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
